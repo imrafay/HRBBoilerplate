@@ -12,14 +12,16 @@ namespace Infrastructure.Persistence
     {
         private static readonly List<User> _users = new();
 
-        public void AddAsync(User user)
+        public async Task AddAsync(User user)
         {
-            _users.Add(user);
+            await Task.Run(() => _users.Add(user));
         }
 
-        public User? GetUserByIdAsync(Guid id)
+        public async Task<User?> GetUserByIdAsync(string email, string password)
         {
-           return _users.Where(x=>x.Id == id).FirstOrDefault();
+            return await Task.Run(() => 
+            _users.Where(x => x.Password == password && x.EmailAddress == email)
+            .FirstOrDefault());
         }
     }
 }

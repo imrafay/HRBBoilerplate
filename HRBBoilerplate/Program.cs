@@ -4,6 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 //Add Libraries
 builder.Services
+    .AddAPIDependency()
     .AddInfrastructureDependency()
     .AddApplicationDependency();
 

@@ -9,8 +9,8 @@ namespace Application.Common.Interfaces.Persistence
 {
     public interface IUserRepository
     {
-        User GetUserByIdAsync(Guid id);
+        Task<User?> GetUserByIdAsync(string email, string password);
 
-        void AddAsync(User user);
+        Task AddAsync(User user);
     }
 }
