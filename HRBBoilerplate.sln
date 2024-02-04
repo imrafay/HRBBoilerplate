@@ -3,19 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRBBoilerplate", "HRBBoilerplate\HRBBoilerplate.csproj", "{1AEA02E9-A268-4C3D-BC85-D38D0B48B47F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRBBoilerplate", "HRBBoilerplate\HRBBoilerplate.csproj", "{1AEA02E9-A268-4C3D-BC85-D38D0B48B47F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{C4E58258-3776-43A1-AEF5-8248B616B6FA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{66C64E19-706D-46F7-8324-EBA22A9E8298}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{2A254E3B-10A6-4D56-A3BF-D4348C8AA889}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{2A254E3B-10A6-4D56-A3BF-D4348C8AA889}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{F8F4868C-5A6E-499D-ABD8-42BB17DB837D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{F8F4868C-5A6E-499D-ABD8-42BB17DB837D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{8FF6453E-81BE-4E8B-88EF-4C666E3C29D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{8FF6453E-81BE-4E8B-88EF-4C666E3C29D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{2172B62D-7F6E-49DA-A3D7-DE68619E58C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation", "Presentation\Presentation.csproj", "{2172B62D-7F6E-49DA-A3D7-DE68619E58C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{B48B6B92-C0EE-47A4-8097-EDA5EA40F815}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{2172B62D-7F6E-49DA-A3D7-DE68619E58C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2172B62D-7F6E-49DA-A3D7-DE68619E58C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2172B62D-7F6E-49DA-A3D7-DE68619E58C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B48B6B92-C0EE-47A4-8097-EDA5EA40F815}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B48B6B92-C0EE-47A4-8097-EDA5EA40F815}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B48B6B92-C0EE-47A4-8097-EDA5EA40F815}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B48B6B92-C0EE-47A4-8097-EDA5EA40F815}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
