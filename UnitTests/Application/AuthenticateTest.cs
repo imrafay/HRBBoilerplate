@@ -3,7 +3,7 @@ using Application.Services;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace UnitTests
+namespace UnitTests.Application
 {
     public class AuthenticateTest : TestBase
     {
