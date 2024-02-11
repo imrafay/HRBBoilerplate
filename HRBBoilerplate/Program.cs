@@ -1,12 +1,14 @@
 using HRBBoilerplate.Filters;
+using HRBBoilerplate.Middleware;
 using Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
 
 //Add Libraries
 builder.Services
     .AddAPIDependency()
-    .AddInfrastructureDependency()
+    .AddInfrastructureDependency(configuration)
     .AddApplicationDependency();
 
 // Add services to the container.
@@ -24,6 +26,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseMiddleware<CustomMiddleware>();
+app.UseAuthentication();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

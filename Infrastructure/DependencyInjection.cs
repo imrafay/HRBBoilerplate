@@ -1,11 +1,11 @@
 ﻿using Application.Common.Interfaces.Persistence;
 using Infrastructure.Persistence;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace Infrastructure
 {
@@ -13,11 +13,27 @@ namespace Infrastructure
     {
 
         public static IServiceCollection AddInfrastructureDependency(
-            this IServiceCollection services)
+            this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddScoped<IUserRepository,UserRepository>();
-            return services;
+            var issuer = configuration["Jwt:Issuer"];
+            var audience = configuration["Jwt:Audience"];
+            var key = configuration["Jwt:Key"];
 
+            services.AddAuthentication(defaultScheme: JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options => options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateAudience = true,
+                    ValidateIssuer = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = issuer,
+                    ValidAudience = audience,
+                    IssuerSigningKey = new SymmetricSecurityKey(
+                    Encoding.UTF8.GetBytes(key))
+                });
+
+            services.AddScoped<IUserRepository, UserRepository>();
+            return services;
         }
     }
 }
