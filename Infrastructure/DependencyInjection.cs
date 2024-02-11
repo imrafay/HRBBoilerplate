@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.Extensions.Configuration;
 
 namespace Infrastructure
 {
@@ -12,8 +13,12 @@ namespace Infrastructure
     {
 
         public static IServiceCollection AddInfrastructureDependency(
-            this IServiceCollection services)
+            this IServiceCollection services, IConfiguration configuration)
         {
+            var issuer = configuration["Jwt:Issuer"];
+            var audience = configuration["Jwt:Audience"];
+            var key = configuration["Jwt:Key"];
+
             services.AddAuthentication(defaultScheme: JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => options.TokenValidationParameters = new TokenValidationParameters()
                 {
@@ -21,10 +26,10 @@ namespace Infrastructure
                     ValidateIssuer = true,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = "Hrb",
-                    ValidAudience = "Hrb",
+                    ValidIssuer = issuer,
+                    ValidAudience = audience,
                     IssuerSigningKey = new SymmetricSecurityKey(
-                    Encoding.UTF8.GetBytes("ueLkzFv9GFMVdSIV5fap0QBLZkTndTqu"))
+                    Encoding.UTF8.GetBytes(key))
                 });
 
             services.AddScoped<IUserRepository, UserRepository>();

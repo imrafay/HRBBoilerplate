@@ -3,11 +3,12 @@ using HRBBoilerplate.Middleware;
 using Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
 
 //Add Libraries
 builder.Services
     .AddAPIDependency()
-    .AddInfrastructureDependency()
+    .AddInfrastructureDependency(configuration)
     .AddApplicationDependency();
 
 // Add services to the container.
