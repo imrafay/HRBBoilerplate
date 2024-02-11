@@ -10,7 +10,15 @@ namespace Infrastructure.Persistence
 {
     public class UserRepository : IUserRepository
     {
-        private static readonly List<User> _users = new();
+        private static readonly List<User> _users = new() {
+        
+             new User { 
+                 Id = Guid.NewGuid(),
+                 EmailAddress = "string",
+                 Name = "string",
+                 Password = "string"
+             }
+        };
 
         public async Task AddAsync(User user)
         {

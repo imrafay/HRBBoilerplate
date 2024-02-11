@@ -26,7 +26,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseMiddleware<CustomMiddleware>();
-
+app.UseAuthentication();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
